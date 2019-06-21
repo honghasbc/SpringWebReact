@@ -1,14 +1,46 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/id7115711_conve" />
-		<property name="username" value="id7115711_conve" />
-		<property name="password" value="conve" />
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	
+	<bean id="userDao" class="com.mkyong.dao.UserDaoImpl" >
+		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
 	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
+	    <!-- 
+		<property name="dataSource" ref="dataSource" />
+		 -->
+		 <!-- 
+		 <constructor-arg ref="dbcpDataSource" />
+		  -->
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<!-- Start Hsql database manager tool -->
+	<bean depends-on="dataSource"
+		class="org.springframework.beans.factory.config.MethodInvokingBean">
+		<property name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" />
+		<property name="targetMethod" value="main" />
+		<property name="arguments">
+			<list>
+				<value>--url</value>
+				<value>jdbc:hsqldb:mem:dataSource</value>
+				<value>--user</value>
+				<value>sa</value>
+				<value>--password</value>
+				<value></value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 
+	<bean id="dbcpDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:dataSource" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+	</bean>
+ 	 -->
 </beans>
