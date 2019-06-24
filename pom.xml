@@ -31,6 +31,7 @@
 		<jstl.version>1.2</jstl.version>
 		<mysql.connector.version>5.1.30</mysql.connector.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
+		<log4j.version>1.2.17</log4j.version>
 	</properties>
 
 	<dependencies>
@@ -105,6 +106,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
+		</dependency>
+		
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 
 	</dependencies>
