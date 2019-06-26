@@ -1,8 +1,8 @@
-package com.mkyong.dao;
+package com.heb.dao;
 
 import java.util.List;
 
-import com.mkyong.model.User;
+import com.heb.model.User;
 
 public interface UserDao {
 

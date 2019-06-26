@@ -1,4 +1,4 @@
-package com.mkyong.dao;
+package com.heb.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.mkyong.model.User;
+import com.heb.model.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -19,8 +19,8 @@ public class UserDaoImpl implements UserDao {
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	
 	@Autowired
-	public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+	public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate2) {
+		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate2;
 	}
 	
 	@Override

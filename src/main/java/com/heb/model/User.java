@@ -1,4 +1,4 @@
-package com.mkyong.model;
+package com.heb.model;
 
 public class User {
 

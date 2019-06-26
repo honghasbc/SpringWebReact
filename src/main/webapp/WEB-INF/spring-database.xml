@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 	
-	<bean id="userDao" class="com.mkyong.dao.UserDaoImpl" >
+	<bean id="userDao" class="com.heb.dao.UserDaoImpl" >
 		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 	
