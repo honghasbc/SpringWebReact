@@ -2,18 +2,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<title>Test React</title>
-<!-- Load React API -->
-<script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<!-- Load React DOM-->
-<script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-<!-- Load Babel Compiler -->
-<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 <body>
-	<script type="text/babel">
-    //  JSX Babel code goes here
-	</script>
-	
 	<h1>Title : ${title}</h1>
 	<h1>Message : ${message}</h1>
 

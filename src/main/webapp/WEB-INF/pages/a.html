@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+<link rel="stylesheet" type="text/css" href="scss.css">
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+    <p class="description">A site menu built in React.
+      <br/>Inspired by <a href="https://codepen.io/mican/">Michal Niewitala's</a> 
+      <a href="https://codepen.io/mican/pen/dNqPaZ">"Vertical Magic Line"</a>
+    </p>
+    <div id="root"></div>
+
+<script type="text/babel">
+class aa extends React.Component {
+  render() {
+    return (
+       <h1>Hello World!</h1>
+    )
+  }
+}
+
+ReactDOM.render(<aa/>, document.getElementById('mydiv'))
+
+class App extends React.Component {
+  render() {
+    return (
+      <MenuContainer/>
+    )
+  }
+}
+
+class MenuContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      activeItem: '',
+      activeItemPosition: 0,
+      activeItemColor: '',
+      menuItems: [
+        { text: 'Home' },
+        { text: 'Gallery' },
+        { text: 'About' },
+        { text: 'Blog' },
+        { text: 'Contact' },
+      ],
+    }
+    
+    this.handleClick = this.handleClick.bind(this)
+  }
+  
+  handleClick(activeItem) {
+    return e => {
+      e.preventDefault()
+    
+      this.setState({
+        activeItem,
+        activeItemPosition: document.getElementById(activeItem).offsetTop,
+        activeItemColor: window.getComputedStyle(document.getElementById(activeItem)).getPropertyValue('background-color'),
+      })
+    }
+  }
+  
+  render() {
+    const menuItems = this.state.menuItems.map(item => <MenuItem item={ item } handleClick={ this.handleClick }/>)
+    return (
+      <div className='menu-container'>
+        <span className='menu-item--active' style={{ top: this.state.activeItemPosition, backgroundColor: this.state.activeItemColor }}/>
+        { menuItems }
+      </div>
+    )
+  }
+}
+
+function MenuItem(props) {
+  return (
+    <div 
+      className='menu-item'
+      id={ props.item.text }
+      onClick={ props.handleClick(props.item.text) }
+    >
+      { props.item.text.toUpperCase() }
+    </div>
+  )
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'))
+
+</script>
+
+  </body>
+</html>
