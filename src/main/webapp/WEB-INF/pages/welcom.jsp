@@ -1,6 +1,7 @@
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file=”/resources/demo/build/index.html”%>
 <html>
 <body>
 	<h1>Title : ${title}</h1>
@@ -28,5 +29,6 @@
 
 
 	</sec:authorize>
+	
 </body>
 </html>

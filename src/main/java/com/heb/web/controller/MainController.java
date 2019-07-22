@@ -39,7 +39,7 @@ public class MainController {
 		}
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
-		model.setViewName("hello");
+		model.setViewName("welcom2");
 		return model;
 
 	}
